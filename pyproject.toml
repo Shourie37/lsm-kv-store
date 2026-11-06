@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lsm-kv-store"
+version = "0.1.0"
+description = "A log-structured merge-tree key-value storage engine in pure Python"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Shourie Amireddy", email = "shourie3009@gmail.com" }]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+lsmkv-bench = "lsmkv.bench:main"
+
+[tool.setuptools]
+packages = ["lsmkv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
